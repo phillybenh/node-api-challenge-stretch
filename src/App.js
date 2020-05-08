@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+// Dependancies
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  NavLink,
+} from "react-router-dom";
+
+// components
+import Main from "./components/main";
+import ProjectDeets from "./components/postDeets";
+
+// styles
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>Node API Sprint Challenge</h2>
+        <h1>Stretch!</h1>
       </header>
+
+      <Switch>
+        <Route path="/project/:id" component={ProjectDeets} />
+        <Route path="/" component={Main} />
+      </Switch>
     </div>
   );
 }
